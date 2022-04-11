@@ -1,0 +1,16 @@
+body {
+    background: url(images/background.jpg);
+}
+.grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 600px;
+    margin: 5px auto 0;
+}
+h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: rgb(226, 241, 241);
+}
