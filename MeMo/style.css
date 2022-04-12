@@ -1,17 +1,27 @@
 * {
     box-sizing: border-box;
+    padding: 0;
+	margin: 0;
+	width: 100%;
+    box-sizing: border-box;
+	font-family: 'Bangers', cursive;
 }
   
-body {
-    background: url(img/background.png) repeat-x rgb(33, 28, 28);
+.wrapper {
+    height: 100vh;
+	background: url(img/background.jpg);
+	background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100vw 100vh;
+    overflow: hidden;
 }
-  
 .info {
     display: inline-block;
-    color: rgb(211, 24, 130);
-    font-size: 25px;
-    font-family: 'Rubik Bubbles', cursive;
-    transform: translate(50px, 80px);
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+    /* font-family: 'Rubik Bubbles', cursive; */
+    transform: translate(180px, 80px);
 }
   
 .info__line {
@@ -20,35 +30,34 @@ body {
 }
   
 .info__line span:first-child {
-    width: 100px;
+    width: 100px
 }
   
 .field {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    width: 700px;
-    margin: 5px auto 0;
-   
+    flex-flow: row wrap;
+    width: 600px;
+    margin: auto;
+    margin-top: 50px;
 }
   
 .card {
     position: relative;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: center;
     width: 100px;
     height: 100px;
     border: 2px solid #000;
     font-size: 40px;
-    font-family: 'Rubik Bubbles', cursive;
+    font-family: 'Bangers', cursive;
     cursor: pointer;
     user-select: none;
     background: white;
-    
 }
   
 .card.card_closed::after {
@@ -61,16 +70,58 @@ body {
 }
   
 .restart {
-    margin: 65px 0;
-    text-align: center;
+	width: auto;
+	margin: 30px 0;
+	text-align: center;
 }
   
 .restart button {
-    padding: 20px 30px;
-    background: #056;
-    border: none;
-    border-radius: 5px;
-    color: rgb(240, 226, 226);
-    cursor: pointer;
-    font-family: 'Rubik Bubbles', cursive;
+	width: auto;
+	padding: 10px 20px;
+	background: #056;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+    transform: translate(-500px, -220px);
+}
+
+@media (max-width: 615px) {
+    .field {
+        width: 500px;
+        max-height: 100%;
+        margin: auto;
+    }
+    /* .wrapper {
+        height: 100%;
+        width: 100%;
+    } */
+    
+
+}
+@media (max-width: 500px) {
+    .field {
+        width: 400px;
+        max-height: 100%;
+        margin: auto;
+
+    }
+    .card {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media (max-width: 386px) {
+    .field {
+        width: 320px;
+        max-height: 100%;
+        margin: auto;
+
+    }
+    .card {
+        width: 75px;
+        height: 75px;
+        top: 100px;
+    }
 }

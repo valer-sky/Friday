@@ -1,4 +1,10 @@
 "use strict";
+let toggleButton = document.querySelector('.toggle-menu');
+let navBar = document.querySelector('.nav-bar');
+toggleButton.addEventListener('click', function () {
+	navBar.classList.toggle('toggle');
+});
+
 let gameField      = document.getElementById('field');
 let restartButton  = document.getElementById('restart');
 let stepsCounter   = document.getElementById('steps');
@@ -31,7 +37,7 @@ let cardViewInHTML = '<div class="card card_closed" data-status="closed"></div>'
 // }
  
 
-let cardsContent   = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+let cardsContent   = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,];
 let openedCards    = [];
 let complitedCards = 0;
 let paused         = false;
