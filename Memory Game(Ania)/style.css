@@ -20,7 +20,8 @@ h3 {
 
 .info {
   display: inline-block;
-  color:#fff;
+  color:rgb(255, 255, 255);
+  padding: 5px;
   
 }
 
@@ -29,8 +30,11 @@ h3 {
   justify-content: space-between;
 }
 
-.span {
-  width: auto;
+span {
+  width: 50px;
+  margin: 5px;
+  font-size: 20px;
+  
 }
 .restart {
   margin: 30px 0;
