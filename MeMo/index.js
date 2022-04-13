@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 let toggleButton = document.querySelector('.toggle-menu');
 let navBar = document.querySelector('.nav-bar');
 toggleButton.addEventListener('click', function () {
@@ -11,23 +11,106 @@ let stepsCounter   = document.getElementById('steps');
 let timerUI        = document.getElementById('timer');
 let cardViewInHTML = '<div class="card card_closed" data-status="closed"></div>';
 
-// var cardsContent = [
-//   'img/1.png',
-//   'img/2.png',
-//   'img/3.png',
-//   'img/4.png',
-//   'img/5.png',
-//   'img/6.png',
-//   'img/7.png',
-//   'img/8.png',
-//   'img/9.png',
-//   'img/10.png',
-//   'img/11.png',
-//   'img/12.png',
-//   'img/13.png',
-//   'img/14.png'
+timerUI.hidden = false;
+stepsCounter.hidden = false;
+
+// let cardsContent = [
+//   {
+//     name: 'fries',
+//     img: 'images/1.png'
+//   },
+//   {
+//     name: 'cheeseburger',
+//     img: 'images/2.png'
+//   },
+//   {
+//     name: 'ice-cream',
+//     img: 'images/3.png'
+//   },
+//   {
+//     name: 'pizza',
+//     img: 'images/4.png'
+//   },
+//   {
+//     name: 'milkshake',
+//     img: 'images/5.png'
+//   },
+//   {
+//     name: 'hotdog',
+//     img: 'images/6.png'
+//   },
+//   {
+//     name: 'fr',
+//     img: 'images/7.png'
+//   },
+//   {
+//     name: 'fri',
+//     img: 'images/8.png'
+//   },
+//   {
+//     name: 'frii',
+//     img: 'images/9.png'
+//   },
+//   {
+//     name: 'friit',
+//     img: 'images/10.png'
+//   },
+//   {
+//     name: 'fries',
+//     img: 'images/1.png'
+//   },
+//   {
+//     name: 'cheeseburger',
+//     img: 'images/2.png'
+//   },
+//   {
+//     name: 'ice-cream',
+//     img: 'images/3.png'
+//   },
+//   {
+//     name: 'pizza',
+//     img: 'images/4.png'
+//   },
+//   {
+//     name: 'milkshake',
+//     img: 'images/5.png'
+//   },
+//   {
+//     name: 'hotdog',
+//     img: 'images/6.png'
+//   },
+//   {
+//     name: 'fr',
+//     img: 'images/7.png'
+//   },
+//   {
+//     name: 'fri',
+//     img: 'images/8.png'
+//   },
+//   {
+//     name: 'frii',
+//     img: 'images/9.png'
+//   },
+//   {
+//     name: 'friit',
+//     img: 'images/10.png'
+//   },
 // ];
+
+// cardsContent.sort(() => 0.5 - Math.random());
+
+
+//   for (let i = 0; i < cardsContent.length; i++) {
+//     const card = document.createElement('img');
+//     card.setAttribute('src', 'img/back.jpg');
+//     card.style.cssText = `width: 100px; height: 100px;  position: relative; display: flex; flex-direction: row; 
+//     flex-wrap: wrap;align-items: center;justify-content: center; border: 3px solid #000; cursor: pointer;
+//     user-select: none; margin: 3px; padding: 2px;`;
+//     card.addEventListener('click', openCard);
+//     gameField.appendChild(card);
+//   }
 // console.log(cardsContent);
+
 
 // for(let key in cardsContent) {
 //   let img = document.createElement('img');
@@ -37,7 +120,7 @@ let cardViewInHTML = '<div class="card card_closed" data-status="closed"></div>'
 // }
  
 
-let cardsContent   = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,];
+let cardsContent   = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11, 12];
 let openedCards    = [];
 let complitedCards = 0;
 let paused         = false;
@@ -78,8 +161,12 @@ gameField.onclick = function(e) {
 
   // clear openedCards array for next try
   openedCards = [];
-
+  let resultDisplay = document.querySelector('.result');
   if (complitedCards === cardsContent.length) {
+    resultDisplay.textContent = `Congratulations! You found them all! Your time: ${timerUI.innerHTML} and your steps: ${stepsCounter.innerHTML}`;
+    timerUI.hidden = true;
+   stepsCounter.hidden = true;
+
     restartButton.hidden = false;
   }
 }
