@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     //card options
+
     const cardArray = [
       {
         name: 'fries',
@@ -115,10 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if(optionOneId == optionTwoId) {
         cards[optionOneId].setAttribute('src', 'images/back.jpg');
         cards[optionTwoId].setAttribute('src', 'images/back.jpg');
-        
-      }
+        }
       else if (cardsChosen[0] === cardsChosen[1]) {
-        
+       
         // cards[optionOneId].setAttribute('src', 'images/white.png')
         // cards[optionTwoId].setAttribute('src', 'images/white.png')
         cards[optionOneId].removeEventListener('click', flipCard);
@@ -133,6 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
       cardsChosenId = [];
       resultDisplay.textContent = cardsWon.length;
       if  (cardsWon.length === cardArray.length/2) {
+      
+      
         resultDisplay.textContent = 'Congratulations! You found them all!';
       }
     }
@@ -149,14 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     createBoard();
-  });
-
-  $('.menu a').click(function(){
- 
-    $('.trigger').toggle();
-    $('.menu').toggleClass('round');
-    $('.close').toggle();
-    $('.drop-down').toggleClass('down');
     
-   
+    
   });

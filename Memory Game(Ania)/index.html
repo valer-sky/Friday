@@ -10,30 +10,24 @@
     <title>Memory</title>
 </head>
 <body>
-    <div class="drop-down">
-        <nav role='navigation'>
-          <h1> - Navigation - </h1>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Clients</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-        </nav>  
-        </div>
-        <div class="menu">
-          <a class="trigger" href="#">&equiv;</a>
-          <a class="close" href="#">&times;</a>
-        </div>
+  <div class="info">
+    <div class="info__line">
+      <span>Time:</span>
+      <span id="timer" data-started>00:00:00</span>
+    </div>
+    <div class="info__line">
+      <span>Steps:</span>
+      <span id="steps"> 0 </span>
+      <div class="restart">
+        <button id="restart">Restart</button>
+      </div>
+    </div>
+
+  </div>
     <h3>Score: <span id="result"></span></h3>
 
     <div class="grid"></div>
-    let obj = {
-        "0": 1,
-        0: 2
-       };
-       
-       alert( obj["0"] + obj[0] );
+   
 
     <script src="script.js"></script>
     
