@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log('click');
           
           stepsCounter.innerHTML = 0;
-          timer(elemId);
+          
           // complitedCards = 0;
          restartButton.hidden = false; //true
         });
