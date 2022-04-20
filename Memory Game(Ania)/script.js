@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
       restart(); 
       restartButton.hidden = false;
       // toggleTimer();
-      stepsCounter.innerHTML = 0;
+      
 
       resultDisplay.textContent = 'Congratulations! You found them all!';
       } 
@@ -159,17 +159,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let restartButton  = document.getElementById('restart');
     function restart() {
         restartButton.addEventListener('click', (e) => {
-          document.location.reload();
-          createBoard();
+          
+          
           console.log('click');
-          toggleTimer();
+          
           stepsCounter.innerHTML = 0;
+          timer(elemId);
           // complitedCards = 0;
-         restartButton.hidden = true;
+         restartButton.hidden = false; //true
         });
       } restart();
   
-      restartButton.hidden = true; //true 
+      restartButton.hidden = false; //true 
     
     
       createBoard();
