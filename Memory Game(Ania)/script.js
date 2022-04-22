@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cardsWon.push(cardsChosen);
         
       } else {
-        // toggleTimer();
+        
         cards[optionOneId].setAttribute('src', 'images/back.jpg');
         cards[optionTwoId].setAttribute('src', 'images/back.jpg');
        
@@ -136,9 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
       restart(); 
       restartButton.hidden = false;
-      // toggleTimer();
       
-
+      
+      
       resultDisplay.textContent = 'Congratulations! You found them all!';
       } 
     }
@@ -162,10 +162,12 @@ document.addEventListener('DOMContentLoaded', () => {
           
           
           console.log('click');
-          
+          // field.innerHTML = '';
+          timer(timerUI);
+          // createBoard();
           stepsCounter.innerHTML = 0;
           
-          // complitedCards = 0;
+          
          restartButton.hidden = false; //true
         });
       } restart();
@@ -175,60 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
       createBoard();
 
-    // function createTimer() {
-
-    // }
     
-    
-      
-// //   stepsCounter.innerHTML = 0;
-// //   complitedCards = 0;
-//     // restartButton.hidden = true;
-//     }
-  
-
-/////////////////////////////////////////////////
-// var timerUI = document.getElementsByTagName('h1')[0];
-// var start = document.getElementById('strt');
-// var stop = document.getElementById('stp');
-// var reset = document.getElementById('rst');
-// var sec = 0;
-// var min = 0;
-// var hrs = 0;
-// var t;
-
-// function tick(){
-//     sec++;
-//     if (sec >= 60) {
-//         sec = 0;
-//         min++;
-//         if (min >= 60) {
-//             min = 0;
-//             hrs++;
-//         }
-//     }
-// }
-// function add() {
-//     tick();
-//     timerUI.textContent = (hrs > 9 ? hrs : "0" + hrs) 
-//         	 + ":" + (min > 9 ? min : "0" + min)
-//        		 + ":" + (sec > 9 ? sec : "0" + sec);
-//     timer();
-// }
-// function timer() {
-//     t = setTimeout(add, 1000);
-// }
-
-// timer();
-// start.onclick = timer;
-// stop.onclick = function() {
-//     clearTimeout(t);
-// }
-// reset.onclick = function() {
-//   textContent = "00:00:00";
-//     seconds = 0; minutes = 0; hours = 0;
-// }
-
 ////////////////////////////////////////
 let stepsCounter   = document.getElementById('steps');
 let timerUI        = document.getElementById('timer');
@@ -267,7 +216,7 @@ let paused         = false;
       }
     }
     
-    function toggleTimer() {
+  function toggleTimer() {
       if (!timerUI.dataset.started) {
         timerUI.dataset.started = 'true';
         timer(timerUI);
@@ -276,72 +225,6 @@ let paused         = false;
       	timerUI.dataset.started = '';
       }
     }
-    
-    
- 
-  ////////////////////////////////////////////////
-
-  // let gameField      = document.getElementById('field');
-
-
-// let cardViewInHTML = '<div class="card card_closed" data-status="closed"></div>';
-// let cardsContent   = [1, 2, 3, 4, 5, 6, 7, 8];
-// let openedCards    = [];
-// let complitedCards = 0;
-
-
-// restartButton.hidden = false; //true
-// cardsContent = doubleCards(cardsContent);
-// createCardsOnGameField(field);
-
-// gameField.onclick = function(e) {
-// 	// wait while two wrong opened cards was closed;
-//   if (paused) { 
-//   	return; 
-//   }
-//   if (!timerUI.dataset.started) {
-//   	toggleTimer();
-//   }
-// //   if (e.target.dataset.status === 'opened'
-//    || e.target.dataset.status === 'complited') {
-//     return;
-//   }
-
-
-  // openCard(e.target);
-  // stepsCounter.innerHTML = +stepsCounter.innerHTML + 1;
-
-  // if (openedCards.length !== 2) return;
-
-  // set comlited status for matched cards, or close their with delay if not
-  // if (openedCards[0] === openedCards[1]) {
-  //   setOpenedCardsStatus('complited', '');
-  //   complitedCards += 2;
-  // } else {
-  //   paused = true;
-  //   setTimeout(() => {
-  //     setOpenedCardsStatus('closed', 'card_closed');
-  //     paused = false;
-  //   }, 700);
-  // }
-
-  // clear openedCards array for next try
- 
-
-// restart.onclick = function()  {
-//   gameField.innerHTML = '';
-//   cardsContent = mixarr(cardsContent);
-//   // create cards in HTML
-//   for (let i = 0; i < cardsContent.length; i++) {
-//     gameField.insertAdjacentHTML('beforeend', cardViewInHTML);
-//     gameField.lastElementChild.innerHTML = cardsContent[i];
-//   }
-//   toggleTimer();
-//   stepsCounter.innerHTML = 0;
-//   complitedCards = 0;
-//   restartButton.hidden = true;
-// }
-
 });
 
 
