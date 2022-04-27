@@ -10,117 +10,13 @@ let restartButton  = document.getElementById('restart');
 let stepsCounter   = document.getElementById('steps');
 let timerUI        = document.getElementById('timer');
 let cardViewInHTML = '<div class="card card_closed" data-status="closed"></div>';
+let cardsContent  = [1,2,3,4,5,6,7,8,9,10,11,12];
+    cardsContent = cardsContent.map((card) => {
+     let img = new Image();
+     img.src = `img/${card}.png`;
+      return img;
+    });
 
-timerUI.hidden = false;
-stepsCounter.hidden = false;
-
-// let cardsContent = [
-//   {
-//     name: 'fries',
-//     img: 'images/1.png'
-//   },
-//   {
-//     name: 'cheeseburger',
-//     img: 'images/2.png'
-//   },
-//   {
-//     name: 'ice-cream',
-//     img: 'images/3.png'
-//   },
-//   {
-//     name: 'pizza',
-//     img: 'images/4.png'
-//   },
-//   {
-//     name: 'milkshake',
-//     img: 'images/5.png'
-//   },
-//   {
-//     name: 'hotdog',
-//     img: 'images/6.png'
-//   },
-//   {
-//     name: 'fr',
-//     img: 'images/7.png'
-//   },
-//   {
-//     name: 'fri',
-//     img: 'images/8.png'
-//   },
-//   {
-//     name: 'frii',
-//     img: 'images/9.png'
-//   },
-//   {
-//     name: 'friit',
-//     img: 'images/10.png'
-//   },
-//   {
-//     name: 'fries',
-//     img: 'images/1.png'
-//   },
-//   {
-//     name: 'cheeseburger',
-//     img: 'images/2.png'
-//   },
-//   {
-//     name: 'ice-cream',
-//     img: 'images/3.png'
-//   },
-//   {
-//     name: 'pizza',
-//     img: 'images/4.png'
-//   },
-//   {
-//     name: 'milkshake',
-//     img: 'images/5.png'
-//   },
-//   {
-//     name: 'hotdog',
-//     img: 'images/6.png'
-//   },
-//   {
-//     name: 'fr',
-//     img: 'images/7.png'
-//   },
-//   {
-//     name: 'fri',
-//     img: 'images/8.png'
-//   },
-//   {
-//     name: 'frii',
-//     img: 'images/9.png'
-//   },
-//   {
-//     name: 'friit',
-//     img: 'images/10.png'
-//   },
-// ];
-
-// cardsContent.sort(() => 0.5 - Math.random());
-
-
-//   for (let i = 0; i < cardsContent.length; i++) {
-//     const card = document.createElement('img');
-//     card.setAttribute('src', 'img/back.jpg');
-//     card.style.cssText = `width: 100px; height: 100px;  position: relative; display: flex; flex-direction: row; 
-//     flex-wrap: wrap;align-items: center;justify-content: center; border: 3px solid #000; cursor: pointer;
-//     user-select: none; margin: 3px; padding: 2px;`;
-//     card.addEventListener('click', openCard);
-//     gameField.appendChild(card);
-//   }
-// console.log(cardsContent);
-
-
-// for(let key in cardsContent) {
-//   let img = document.createElement('img');
-//   img.src = 'img/'+ key + '.png';
-//   img.style.cssText ='width: 100px; height: 100px;';
-//   gameField.append(img);
-// }
- 
-
-let cardsContent   = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11, 12];
 let openedCards    = [];
 let complitedCards = 0;
 let paused         = false;
@@ -162,11 +58,10 @@ gameField.onclick = function(e) {
   // clear openedCards array for next try
   openedCards = [];
   let resultDisplay = document.querySelector('.result');
+  
+
   if (complitedCards === cardsContent.length) {
     resultDisplay.textContent = `Congratulations! You found them all! Your time: ${timerUI.innerHTML} and your steps: ${stepsCounter.innerHTML}`;
-    timerUI.hidden = true;
-   stepsCounter.hidden = true;
-
     restartButton.hidden = false;
   }
 }
@@ -177,12 +72,13 @@ restart.onclick = function() {
   // create cards in HTML
   for (let i = 0; i < cardsContent.length; i++) {
     gameField.insertAdjacentHTML('beforeend', cardViewInHTML);
-    gameField.lastElementChild.innerHTML = cardsContent[i];
+    gameField.lastElementChild.innerHTML =  '<img class="card-image" src="' + cardsContent[i].getAttribute('src') + '">';
   }
   toggleTimer();
   stepsCounter.innerHTML = 0;
   complitedCards = 0;
   restartButton.hidden = true;
+  resultDisplay.textContent = '';
 }
 
 function openCard(target) {
@@ -214,7 +110,7 @@ function doubleCards(cardsContent) {
 function createCardsOnGameField(field) {
   for (let i = 0; i < cardsContent.length; i++) {
     field.insertAdjacentHTML('beforeend', cardViewInHTML);
-    field.lastElementChild.innerHTML = cardsContent[i];
+    gameField.lastElementChild.innerHTML =  '<img class="card-image" src="' + cardsContent[i].getAttribute('src') + '">';
   }
 }
 
