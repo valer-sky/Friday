@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SPA</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./css/nav.css">
+</head>
+<body>
+    <div id="page"></div>
+
+    <script>
+        window.onhashchange = renderNewState;
+        function renderNewState() {
+            const hash = window.location.hash;
+            let state = decodeURIComponent(hash.substr(1));
+
+            if (state === '') {
+                state = {page: 'first'};
+            } else {
+                state = JSON.parse(state);
+            }
+
+            let page = '';
+
+            switch(state.page) {
+                case 'first':
+                    page += `<div class="info" >
+        <div class="info__line">
+            <span>Time: &emsp;</span>
+            <span id="timer" data-started>00:00:00</span>
+        </div>
+      <div class="info__line">
+        <span>Steps:</span>
+        <span id="steps">0</span>
+      </div>
+      <div class="result"></div>
+    </div>
+<div class="field" id="field"></div>
+<div class="restart">
+  <button id="restart">Restart</button>
+</div>`;
+                    break;
+                case 'second':
+                    page += `<ol>
+                                                    <li>Ищи совпадающие по цвету элементы по горизонтали, вертикали или диагонали (3 и более)</li><br>
+                                                    <li>Элементами можно управлять при помощи мыши на ПК и пальцем на тачскрине</li><br>
+                                                    <li>Нажми на элемент и проведи в сторону второго элемента, с которым необходимо поменяться местами</li><br>
+                                                    <li>Одинаковые группы исчезнут и поле перестоится, а ты получишь очки</li><br>
+                                                    <li>Набери максимальное количество очков за 30 ходов</li>
+                                                </ol>`;;
+                    break;
+                case 'third':
+                    page += 'Таблица рекордов';
+                    break;
+            }
+
+            document.getElementById('page').innerHTML = page;
+        }
+
+        function switchToState(state) {
+            location.hash = encodeURIComponent(JSON.stringify(state));
+        }
+        function switchToFirst() {
+            switchToState({page: 'first'});
+        }
+        function switchToSecond() {
+            switchToState({page: 'second'});
+        }
+        function switchToThird() {
+            switchToState({page: 'third'});
+        }
+
+        renderNewState();
+    </script>
+
+    <input type="button" value="Главная" onclick="switchToFirst()">
+    <input type="button" value="Правила" onclick="switchToSecond()">
+    <input type="button" value="Таблица рекордов" onclick="switchToThird()">
+    <script src="index.js"></script>
+</body>
+</html>

@@ -12,7 +12,9 @@
     <title>Demo-Memo</title>
 </head>
 <body>
+    <div id="page"></div>
     <div class="wrapper">
+        
     <div class="info" >
         <div class="info__line">
             <span>Time: &emsp;</span>
@@ -36,16 +38,17 @@
     </div>
     <ul class="nav-list">
         <li class="nav-list-item"><a href="" class="nav-link">Home</a></li>
-        <li class="nav-list-item"><a href="" class="nav-link">Play</a></li>
+        <li class="nav-list-item"><a href="" onclick="switchToFirst()"class="nav-link">Play</a></li>
         <li class="nav-list-item">
-            <a href="" class="nav-link">Records</a>
+            <a href="" onclick="switchToSecond()" class="nav-link" >Records</a>
         </li>
-        <li class="nav-list-item"><a href="" class="nav-link">Rules</a></li>
+        <li class="nav-list-item"><a href="" class="nav-link" onclick="switchToThird()">Rules</a></li>
         <li class="nav-list-item">
             <a href="" class="nav-link">About</a>
         </li>
     </ul>
 </nav>
+
 </div>
     <script src="index.js"></script>
 </body>

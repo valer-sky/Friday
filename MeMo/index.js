@@ -157,3 +157,53 @@ function toggleTimer() {
   	timerUI.dataset.started = '';
   }
 }
+
+
+window.onhashchange = renderNewState;
+function renderNewState() {
+    const hash = window.location.hash;
+    let state = decodeURIComponent(hash.substr(1));
+
+    if (state === '') {
+        state = {page: 'first'};
+    } else {
+        state = JSON.parse(state);
+    }
+
+    let page = '';
+
+    switch(state.page) {
+        case 'first':
+            page += 'rrrr';
+            break;
+        case 'second':
+            page += `<ol>
+                                            <li>Ищи совпадающие по цвету элементы по горизонтали, вертикали или диагонали (3 и более)</li><br>
+                                            <li>Элементами можно управлять при помощи мыши на ПК и пальцем на тачскрине</li><br>
+                                            <li>Нажми на элемент и проведи в сторону второго элемента, с которым необходимо поменяться местами</li><br>
+                                            <li>Одинаковые группы исчезнут и поле перестоится, а ты получишь очки</li><br>
+                                            <li>Набери максимальное количество очков за 30 ходов</li>
+                                        </ol>`;
+            break;
+        case 'third':
+            page += '<h1>Таблица рекордов</h1>';
+            break;
+    }
+
+    document.getElementById('page').innerHTML = page;
+}
+
+function switchToState(state) {
+    location.hash = encodeURIComponent(JSON.stringify(state));
+}
+function switchToFirst() {
+    switchToState({page: 'first'});
+}
+function switchToSecond() {
+    switchToState({page: 'second'});
+}
+function switchToThird() {
+    switchToState({page: 'third'});
+}
+
+renderNewState();
