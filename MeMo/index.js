@@ -1,4 +1,4 @@
-// "use strict";
+"use strict";
 let toggleButton = document.querySelector('.toggle-menu');
 let navBar = document.querySelector('.nav-bar');
 toggleButton.addEventListener('click', function () {
@@ -78,7 +78,7 @@ restart.onclick = function() {
   stepsCounter.innerHTML = 0;
   complitedCards = 0;
   restartButton.hidden = true;
-  resultDisplay.textContent = '';
+  resultDisplay.textContent = 'hidden';
 }
 
 function openCard(target) {
