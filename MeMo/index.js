@@ -1,9 +1,9 @@
 // "use strict";
-let toggleButton = document.querySelector('.toggle-menu');
-let navBar = document.querySelector('.nav-bar');
-toggleButton.addEventListener('click', function () {
-	navBar.classList.toggle('toggle');
-});
+// let toggleButton = document.querySelector('.toggle-menu');
+// let navBar = document.querySelector('.nav-bar');
+// toggleButton.addEventListener('click', function () {
+// 	navBar.classList.toggle('toggle');
+// });
 
 let gameField      = document.getElementById('field');
 let restartButton  = document.getElementById('restart');
@@ -57,10 +57,11 @@ gameField.onclick = function(e) {
 
   // clear openedCards array for next try
   openedCards = [];
-  // let resultDisplay = document.querySelector('.result');
+  let resultDisplay = document.querySelector('.result');
+  
   
   if (complitedCards === cardsContent.length) {
-    playerName();
+    // playerName();
     
   //   let namePlayer;
   // namePlayer = prompt(`Congratulations! You found them all! Your time: ${timerUI.innerHTML} and your steps: ${stepsCounter.innerHTML}. Введите ваше имя для таблицы рекордов', ''`);
@@ -82,11 +83,12 @@ restartButton.onclick = function() {
     gameField.lastElementChild.innerHTML =  '<img class="card-image" src="' + cardsContent[i].getAttribute('src') + '">';
   }
   toggleTimer();
-  // resultDisplay.textContent.hidden = true;
+  
   stepsCounter.innerHTML = 0;
   complitedCards = 0;
   restartButton.hidden = true;
-  // resultDisplay.textContent = 'hidden';
+  
+  resultDisplay = '';
 }
 
 function openCard(target) {
@@ -270,12 +272,13 @@ function playerName() {
 	drinkStorage.addValue(player, results);
     drinksAjaxStorage.setLoc();
 
-	console.log(drinkStorage);
+	// console.log(drinkStorage);
   var drinkList = document.getElementById("drinkList");
 
   drinkList.onclick = function() {
 	var drinkInfoP = document.getElementById("drinkInfoP");
 		drinkInfoP.innerHTML = results;
+    console.log(drinkInfoP);
 };  
 };
 
